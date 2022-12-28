@@ -1,0 +1,14 @@
+<!--pages/version/version.wxml-->
+<view class="page">
+
+     <view class="page__bd">
+          <view class="weui-article">
+               <image class="center_img" src="../../image/222.jpg" mode="aspectFit" style="height: 60px" />
+               <view class="center_h">醉翁钓鱼</view>
+               <view class="page__desc">*更新日志*</view>                                 
+               <view class="weui-article__p">
+                    Version 1.1.0 - 2022/12
+                    Alpha</view>
+          </view>
+     </view>
+</view>
