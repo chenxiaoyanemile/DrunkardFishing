@@ -51,7 +51,7 @@
         "pagePath": "pages/logs/logs",
         "iconPath": "image/jilu.png",
         "selectedIconPath": "image/jilu2.png",
-        "text": "钓鱼记录"
+        "text": "我的鱼塘"
       },
       {
         "pagePath": "pages/setting/setting",

@@ -76,8 +76,10 @@
 }
 .clear{
 	position: absolute;
-	bottom: 0px;
-	width: 100%;
+  bottom: 0px;
+  /* 是否独立占据一整行 */
+  width: 100%;
+  /* 距离下面的盒子多少 */
 	height: 8%;
 	text-align: center;
 	background-color: #ededed;
@@ -124,4 +126,71 @@
 	background-size: 70rpx 70rpx;
 	background-position: 15rpx 15rpx;
 	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAANt0lEQVR4Xu1dC5AcRRn+/9nLHcfDHMmFnZ47rSOFxTOG8FAemgKUQiFBIh4FCCaCGKKoQQhvJKRMhEhEXoJKiLwkGhCKvIBCoUCKhzxEiDwLAu5Nz+ZCLsEod8nt/FYfs9Tldma6Z3Z2dzbbXXWVqszf/+P7v/m3p2e6G0G3hkYAGzp6HTxoAjQ4CTQBNAEaHIEGD19XAE2ABkegwcPXFUAToMERaPDwdQXQBGhwBBo8/FRWAMuyjiaifRHRsW17aT3nyLKs413XnWQYxku2bT+YtlhSRwDTNK9AxLlFoIjIdhynI23AqfjDGHsMAI4YJvs45/xIlb7VkkkVARhjxwDAQyODR8Rltm2fVC1QkrAzksjDCD3XcZwrk7CRhI5UEcA0zTmIuNAnsA8556OTCLhaOhhjKwHgWB97qzjnx1XLD5mdtBFgm/I/3HnOeap8lQHrU/6LXVL1M5AqUIPKpkBOE0BGuXjXNQHi4SbtpSuAFKJSAV0BYoBWZpeKVQDTNLsR8XAiGo+I4wFA/L2BiItt277Rz+9yCGCa5hGI+DMAOLxMTGTd1wLAI5zzmWGCcSqAaZr7AMCtiHgoALwz7O/FTCazLJfLbZA5F/V6ogQwTfNYRPwGAJwIAG1BzriuOzWfz68YeT0uAQRwiLgmavDlyBNR6ONcVAJ4BBbzBmHtbgBYzTkX/ybSEiFANpudkMlkziOi6YpeLeacfzcpAjDGbgWAMxVtJyZGRLs7jiMqQkmLQYAbEPEcFeeI6K8AsMhxnFUq8mEyZRPAu2vPB4CdVZ056qAWWHLFriXi1/5hM/zqns2+at5bbgaqP2t+HzzyzICq+cTkVl3XDvuOb/LVd/IlG+DpV7aUXDt0QjMsXTCm5P9jxrB4cHBwdm9vrz9oCpGWRQDG2LUAMFvBzjYis0/ZGc49tZQvcQkQ1i+qb6ryu40x4InfjoPWFn8IoxKgjBjWZDKZE3K53Nuqvg+Xi00AxthrALBXVKPijhF3f3ZMJrEKIBR9/+qNsPJv/VHdiS0v7mJxNwe1qARIIIbJnPMnowYUiwCMsXcBoEtmbFQTDIGUHZuB3XY1YO/dR8FXPt8SeNfErQBFPwQB3nx/UOZWWdfHjjaGYvrsZ/xLf1F5HAKIvsUY1vW5kN9QgFfe3grrNrhKPvf397f19fVtUhL2hCITwLKsJUQ0I8zI4ROb4cSjWmHKl3aAllHqJsolQJTAKy0blwB+fj318ha4//GPYNmjH4W6TUTLHcc5Pkps6tkBANM0ZyDikiAD4o6/4Nu7wPem7RTFh09kNQHCYRPV4bqlm+GN90Kr3FWc84tVExCVAE8j4iF+yll7BhbNHg3i7o/bNAHkyOXyBbjghk0gqkJAGxQfoOTz+Vfl2kB9aZhlWScT0T1+SndqRVh21djARyIVR4SMJoAqUgDdF22A59b4kwARr7Fte46KNuUKwBhbDQBf9VMqyv4PuuOV/eH6NAFUUvaxzGMvDMCMuX1BHdYbhjGpp6cnJ9OoRADG2EEA8Hc/ZZP2bIYHrimd2JAZ9ruuCRANtctu/hDuXPW/oE6zOOe3yDSqEkAMKhb4KbthThscP3kHmR2l68uf7IdzFm4skd1n9yZYfX27ko60CP30lg/h9pWlyZl+3I4w7+xPJeLmOz0FOOH89bBpM5XoI6KljuOcIjOkSoAXAOCAkcomT2qGO+clc/cXdR88fV3Jc2/QzKEsuFpeF9PA4lFwZJNNIEX1OaRqOpxzJtMnJQBjbG8A+JefIvG7L37/k25iVu+JF7cAazdAJP+4LyZTYZL2U6bvrfcHh0bsL76+FQ7YaxQs/OFo6QSSTOfI6+LRUODl17xxwD/CdEoJkM1mpxiGsdxPyY1zRsPUya1RfdbyCSLgfODCF2as89WIiKfatu375FbsICUAY+x0ALjDz8KKa8fChD1GJRiOVhUHgX1PysPmj0rHAQBwGed8flkVgDH2IwC4zk/Jc7eP832pEycI3Sc+AkfM7IV37UKJAiK6zXGc0O8kpBUg7CudsHf08cPRPaMiEPTeAQCkn6BrAkRFO4XymgApTEo1XdIEqCbaKbSlCZDCpFTTJU2AaqKdQluaAClMSjVd0gSoJtoptFUzAoh5et1qj8Czr27xXYNQ8XmA2oeuPZAgUNmJIA1/6hHQBEh9iirroCZAZfFNvXZNgNSnqLIOagJUFt/Ua68sAept46bUpyumg1H3IhhupqzXwZoAMTOWcDdNgIQBrTd1mgD1lrGE/dUESBjQelOnCVBvGUvYX02AhAGtN3WaAPWWsYT91QRIGNB6U6cJUG8ZS9hfTYCEAa03dZoA9ZaxhP3VBEgY0HpTpwmQgoyJ3b6FG4ZhvGrb9vpquqQJUE20R9hqa2tra21tvR4AxDL6oYaIF9q27Xf4VUU81QSoCKxypR0dHRNd173J55CK/xLRfkFbycs1R5PQBIiGVyLSlmV9nYhE8n0PtSSi7ziO8/tEjEmUaAJUA+VhNsI2zSiKEdFJjuMsq4ZrmgDVQNmzwRj7JQCcKzH5Audc7K1YlaYJUAWYOzs7OwqFghjsiTORwprS9mxJuqwJkCSaPro6OjoOdV1XnHRWslfiCHFxoJPfcbEV9VAToILweptki8GebEfMBZzzSyvoSqBqTYAKoW5Z1oVEdJVMPRF1O45zr0yuUtc1ARJGtqura4eBgQFxINbZMtWIuLdt26/L5Cp5vSEI4A3CrgaAb3lg3s85lw3IIuNuWdaeRCSS/zVJ5zcHBwcPLOfItsjOBXRoCAIwxu7zGYE/zDn3PcMgDriWZR1NRGJTTLE/cmAjoj86jnNyHBuV6LPdE0ByNOzlnHNxZnBZzbKsM4lIPObtGKYIES+ybVtUotS07Z4AlmV9mojeD0KciI5yHEd27m5gwizLmkdEl8syiojTbNt+QCZX7evbPQEEoKZpPoiIU4PA3bp1q7V+/XoeBXzLssQpFNconHksNuI9hHP+fBT91ZJtCAJYlnUYET0cdEYxInLbti1V0BljYlJnEQAMvccPac8PDg5O7e3tdVR1V1uuIQggQGWMiceym0MAvpdz3i1LAGNsGgCIOX3Z6ae3cs7Pkumr9fWGIYBHAkGAsOfzSzjnPw9KCmPsx+KEOvHdhmSwd7Ft29JJoFon38NEjH/8Ktn2uT8AY+wpADgsZFDoNzNnMMZ+AQA/UUja6ZzzuxTkUiHSUBVAIJ7NZscbhvFy0HhAyGQymYm5XO6f3gCySxymCAAnSjK2kYimOY7zeCoyq+hEwxHAK3unAcCdIRi9mclk9i8UCgeLkT4AiH8DGyI+ZhjGzFwu95Yi7qkRa0gCCPQty/o1Ec0KygQiriAikfisJPm3G4YxK5fLhR/PnZqUb+tIwxLAqwSh4wGFnM3nnF+mIJdakYYmgEeC/4SNB0Iyp3S8amoz7znW8ASwLGsvInotQqJ6XNedlc/nfc9DjKAnFaINTwBvPHAGES1WyMiziDjLtu2XFGTrQkQTwEuTaZrdiPinkKzdJwaNjuP01kVmFZ3UBBgGlCABAMxExC8X/5uInkHEm+ppckcx90NimgA+aLW3t7OmpqY9AWDN9nbHjwxXEyDK7bIdymoCbIdJjRJSpQlwnjePXuKTYRjtPT09H0RxVssmjwBjTLzzmOCj+R7O+alhFqWbRVuWFfh45bru5/L5/CvJh6Q1RkGAMSY2pBjr00c6yyklgPfxxJ/9HCKiKY7jrIzirJZNFoExY8Z8qqWlZZOfVkQ807bt28qqAGLrE/GmLEDJpZzzBcmGpLVFQYAxdgwAPBRwgx4pe7UtrQDec2YuYCOE+zjn34zisJZNFgHTNOcgot92NP2c81aZNSUCWJa1kIjmBCibzDl/UmZIX08egWw2u5NhGM8AwH4+2h/inMtWN4V/F1dU6q2YeSQgBF0Fks+tkkbG2CUAMD/g91/pm0alCuD9DIiXJ/sHeHYa5/xuJa+1UCIIeKulROUNWrZ+sMo6higEmO19TesXwJpMJjM5l8ttSCQ6rUSKAGNMfLRaXCg7Uv4uzvkn29aV9RRQ7NzV1dU2MDAgqoDvt/SIuLJQKJyRz+fXSb3XAmUhwBgTn7WLG9K3IeLRtm0/qmJEuQIIZaZpXoGIc0MUP28YxkU9PT1/UTGuZaIh0NnZuUehUJgHAKeE9Iw0JotEAG8sELQI4ROfEFEsufqdbdtvRAtRS/sh0N7evktzc/MMIhKDPjMIJSKyiWhSlCocmQDjxo3buampSXyDp9LEIGU1EXHDMGzXdbeodNIyQ3sOM9d1LUQ8EACmAMAuCrgoDfyG64lMANHZW6gpvsbVLSUIENFcx3GujOpOLAIIIx0dHZ2u664AgIlRjWr5xBE4m3P+mzhaYxNAGPN+DpYAgJ4OjoN++X3EU5lYDOv7LkBFfVkEKBowTXM6Ip4X8E5axQ8tEw2BjWK5W0tLy6K1a9f2R+u6rXQiBChWg0wmIz4eEQsw/T5OKMdP3fdjBP5NRA8g4s2c8yjrIALxS4wAwy2IV8iGYXQTkRjB7jrsr0lnUhmBPgAY+iMisWD1DsdxViv3VhSsCAEUbWuxFCCgCZCCJNTSBU2AWqKfAtuaAClIQi1d0ASoJfopsK0JkIIk1NIFTYBaop8C25oAKUhCLV3QBKgl+imwrQmQgiTU0gVNgFqinwLb/wcmV5Tbd4/tgAAAAABJRU5ErkJggg==');
+}
+
+/* 嘉宾列表 */
+.guest-big-box {
+  display: flex;
+  /* 一行一行排列 */
+  flex-direction: row;
+  /* 当一行放不下嘉宾时，自动换行 */
+  flex-wrap: wrap;
+  /* 排列方式 */
+  justify-content: space-between;
+  /* 给嘉宾列表这个大的盒子一个内边距 */
+  padding: 10rpx 20rpx;
+}
+
+/* 每个嘉宾的信息汇总 */
+.single-guest-item {
+  display: flex;
+  flex-direction: column;
+  /* 上下两个嘉宾要有间隔，给他一个向下的外边距 */
+  margin-bottom: 20rpx;
+}
+
+/* 每个嘉宾的个人图片信息 */
+.single-guest-item-picture {
+  width: 340rpx;
+  height: 400rpx;
+  /* 图片做成圆角 */
+  border-radius: 20rpx;
+}
+
+/* 每个嘉宾的各项文本类的信息 */
+.single-guest-item-etc {
+  /* display: flex; */
+  /* 横向排列 */
+  /* flex-direction: row; */
+  /* 排列方式 */
+  /* justify-content: space-between; */
+  /* 比如姓名这项文本类信息 要和 学历信息 个人基本信息 等 有一个上下间距，所以这里给它一个外边距 */
+  margin: 10rpx 0;
+}
+
+/* 每个嘉宾的学历信息 */
+.single-guest-item-education {
+  display: flex;
+  /* 横向排列 */
+  flex-direction: row;
+  /* 排列方式 */
+  justify-content: space-between;
+  /* 比如姓名这项文本类信息 要和 学历信息 个人基本信息 等 有一个上下间距，所以这里给它一个外边距 */
+  margin: 10rpx 0;
+}
+
+/* 每个嘉宾的个人基本信息，包括年龄、身高、城市、职业、年薪、婚恋状态等 */
+.single-guest-item-basic {
+  display: flex;
+  /* 横向排列 */
+  flex-direction: row;
+  /* 排列方式 */
+  justify-content: space-between;
+  /* 比如姓名这项文本类信息 要和 学历信息 个人基本信息 等 有一个上下间距，所以这里给它一个外边距 */
+  margin: 10rpx 0;
+}
+
+/* 单个嘉宾的年龄信息 */
+.single-guest-item-basic-age {
+  color: red;
 }

@@ -1,44 +1,96 @@
 <view class="container timer {{isRuning ? 'timer--runing': ''}}">
-	<view class="timer_main">
-		 <view class="timer_time-wrap">
-		 		<view class="timer_progress_mask"></view>
-		 		<view class="timer_progress timer_left">
-		 			<view class="timer_circle timer_circle--left" style="transform: rotate({{leftDeg}}deg);"></view>
-		 		</view>
-		 		<view class="timer_progress timer_right">
-		 			<view class="timer_circle timer_circle--right" style="transform: rotate({{rightDeg}}deg);"></view>
-		 		</view>
-			 	<text wx:if="{{!completed}}" class="timer_time">{{remainTimeText}}</text>
-			 	<text 
-			 		wx:if="{{isRuning}}" 
-			 		animation="{{nameAnimation}}" 
-			 		class="timer_taskName">{{taskName == '钓鱼' ? '醉翁' : ''}}{{taskName}}{{completed ? '已完成！' : '中'}}{{taskName == '钓鱼' ? '\n即将有愿者上钩\n请耐心等待' : ''}}</text>
-		 		<image 
-		 			wx:if="{{completed}}" 
-		 			class="timer_done" 
-		 			src="../../image/complete.png"></image>
-		 </view>
-		 <!--<input 
-		 	type="text" 
-		 	placeholder-style="text-align:center" 
-		 	class="timer_inputname" 
-		 	bindinput="changeLogName"
-		 	placeholder="准备摸啥？"
-			placeholder-style="color:#bfbfbf"/>-->
-	</view>
-	
-	<view class="timer_footer">
-	  <view 
-	  	bindtap="startTimer" 
-	  	data-type="work" 
-	  	class="timer_ctrl {{isRuning && timerType == 'rest' ? 'hide' : ''}}">
-			{{isRuning ? '退出': '正事'}}
-			</view>
+  <!-- 时钟与心情输入框 -->
+  <view class="timer_main">
+    <!-- 时钟展示 -->
+    <view class="timer_time-wrap">
+      <view class="timer_progress_mask"></view>
+      <view class="timer_progress timer_left">
+        <view class="timer_circle timer_circle--left" style="transform: rotate({{leftDeg}}deg);"></view>
+      </view>
+      <view class="timer_progress timer_right">
+        <view class="timer_circle timer_circle--right" style="transform: rotate({{rightDeg}}deg);"></view>
+      </view>
+      <text wx:if="{{!completed}}" class="timer_time">{{remainTimeText}}</text>
+      <!-- 钓鱼页面 -->
+      <text wx:if="{{isRuning}}" animation="{{nameAnimation}}" class="timer_taskName">{{taskName == '钓鱼' ? '醉翁' : ''}}{{taskName}}{{completed ? '已完成！' : '中'}}{{taskName == '钓鱼' ? '\n即将有愿者上钩\n请耐心等待' : ''}}</text>
+      <image wx:if="{{completed}}" class="timer_done" src="../../image/complete.png"></image>
+    </view>
+    <!-- 心情输入框 -->
+    <!-- 只要点到输入框，就会触发bindtap，但是要获取输入框内容，就要用bindinput -->
 
-	  <view 
-	  	bindtap="startTimer" 
-	  	data-type="rest" 
-	  	class="timer_ctrl_2 {{isRuning && timerType == 'work' ? 'hide' : ''}}" >
-			{{isRuning ? '退出': '钓鱼'}} </view>
-	</view>
+    <block wx:if="{{isShowConfirm}}">
+      <view class='toast-box'>
+        <view class='toastbg'></view>
+        <view class='showToast'>
+          <view class='toast-main'>
+            <view class='toast-input'>
+              <input type='text' bindinput='setValue' placeholder="爷，今天钓鱼啥滋味？" data-name='stuEidtName'></input>
+            </view>
+          </view>
+          <view class='toast-button'>
+            <view class='button1'>
+              <view catchtap='cancel'>取消</view>
+            </view>
+            <view class='button2'>
+              <view catchtap='confirmAcceptance'>确定</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- <input type="text" placeholder-style="text-align:center" class="feeling-input" bindinput="getUserFishingMood" placeholder="爷，今天是个啥心情？" placeholder-style="color:#bfbfbf" /> -->
+
+
+
+  </view>
+
+
+  <!-- 展示钓鱼宣传口号 -->
+  <view class="fish-propaganda {{isRuning ? 'hide' : ''}}">
+    <view>{{'三个和尚有水喝，四个醉翁有鱼吃'}}</view>
+    <view>{{'醉翁之意不在酒，在乎荷塘小鱼也'}}</view>
+  </view>
+
+
+
+
+  <!-- <view class="fish-tip-show">{{fishTip}}</view> -->
+  <!-- <view class="fish-tip-show">活跃醉翁</view> -->
+  <view class="menu-fisher-img {{isRuning && (timerType == 'work' || timerType == 'rest' ? 'hide' : '')}}">
+    <view class="single-fisher-item">
+      <image class="fisher-img" src="https://en.pimg.jp/037/024/966/1/37024966.jpg"></image>
+      <text>{{'老志'}}</text>
+    </view>
+    <view class="single-fisher-item">
+      <image class="fisher-img" src="https://en.pimg.jp/037/024/966/1/37024966.jpg"></image>
+      <text>{{secondFisherName}}</text>
+    </view>
+    <view class="single-fisher-item">
+      <image class="fisher-img" src="https://en.pimg.jp/037/024/966/1/37024966.jpg"></image>
+      <text>{{'老邈'}}</text>
+    </view>
+    <view class="single-fisher-item">
+      <image class="fisher-img" src="https://en.pimg.jp/037/024/966/1/37024966.jpg"></image>
+      <text>{{'老平'}}</text>
+    </view>
+  </view>
+
+  <view class="timer_footer">
+    <!-- 正事按钮 -->
+    <!-- <view bindtap="startTimer" data-type="work" class="timer_ctrl {{isRuning && timerType == 'rest' ? 'hide' : ''}}">
+      {{isRuning ? '退出': '正事'}}
+    </view> -->
+    <!-- 钓鱼按钮 -->
+    <view bindtap="startTimer" data-type="rest" class="timer_ctrl_2 {{isRuning && timerType == 'work' ? 'hide' : ''}}">
+      {{isRuning ? '退出': '钓鱼'}}
+    </view>
+  </view>
+
+
+  <!-- 蓝图片外 -->
+
+
+
+
 </view>

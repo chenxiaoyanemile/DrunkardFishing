@@ -1,35 +1,112 @@
+<!-- 横向的，会换行 -->
+<!-- 嘉宾列表 -->
+<view class="guest-big-box">
+
+  <!-- 每个嘉宾 -->
+  <view class="single-guest-item" bindtap="focusSingleGuestItem">
+    <!-- 1、嘉宾图片 -->
+    <image class="single-guest-item-picture" src="https://pic.3gbizhi.com/2021/0222/20210222085249777.jpg"></image>
+    
+    <!-- 2、嘉宾姓名 -->
+    <view class="single-guest-item-etc">美羊羊</view>
+    
+    <!-- 3、学历信息 -->
+    <view class="single-guest-item-education">
+      <view>北大</view>
+      <!-- 专科、本科、还是研究生、还是博士 -->
+      <view>硕士</view>
+      <!-- 全日制还是非全日制 -->
+      <view>全日制</view>
+    </view>
+
+    <!-- 4、基本信息 -->
+    <view class="single-guest-item-basic">
+      <view class="single-guest-item-basic-age">18{{'岁'}}</view>
+      <view>160{{'cm'}}</view>
+      <view>深圳</view>
+      <!-- <view>职业</view>
+      <view>年薪</view>
+      <view>婚恋状态</view> -->
+    </view>
+    
+  
+    <!-- 5、个人简介 -->
+    <view single-guest-item-etc>{{'简介: '}}我是美羊羊</view>
+  </view>
+
+  <!-------------------------------------------------------------------------------->
+  <!-- 每个嘉宾 -->
+  <view class="single-guest-item" bindtap="focusSingleGuestItem">
+    <!-- 1、嘉宾图片 -->
+    <image class="single-guest-item-picture" src="https://pic.3gbizhi.com/2021/0222/20210222085249777.jpg"></image>
+    
+    <!-- 2、嘉宾姓名 -->
+    <view class="single-guest-item-etc">懒羊羊</view>
+    
+    <!-- 3、学历信息 -->
+    <view class="single-guest-item-education">
+      <view>清华</view>
+      <!-- 专科、本科、还是研究生、还是博士 -->
+      <view>硕士</view>
+      <!-- 全日制还是非全日制 -->
+      <view>全日制</view>
+    </view>
+
+    <!-- 4、基本信息 -->
+    <view class="single-guest-item-basic">
+      <view class="single-guest-item-basic-age">18{{'岁'}}</view>
+      <view>160{{'cm'}}</view>
+      <view>深圳</view>
+      <!-- <view>职业</view>
+      <view>年薪</view>
+      <view>婚恋状态</view> -->
+    </view>
+    
+  
+    <!-- 5、个人简介 -->
+    <view single-guest-item-etc>{{'简介: '}}我是懒羊羊</view>
+  </view>
+
+  <!-------------------------------------------------------------------------------->
+</view>
+
+
+
+
+
 <block wx:if="{{logs.length}}">
-	<view class="chart_container">
-		<canvas  canvas-id="ringCanvas" class="ringchartCanvas" bindtouchstart="touchHandler"></canvas>
-		<view class="poster" bindtap="goposter"></view>
-   </view>
+  <!-- 钓鱼次数圆图 -->
+  <view class="chart_container">
+    <canvas canvas-id="ringCanvas" class="ringchartCanvas" bindtouchstart="touchHandler"></canvas>
+    <!-- 海报功能暂时不展示，因为还是基础项目的文案 -->
+    <!-- <view class="poster" bindtap="goposter"></view> -->
+  </view>
 
-	<scroll-view class="itemcontainer" scroll-y="true">
-	  	<view class="log_item" wx:for="{{logs}}" wx:for-index="$index" wx:for-item="log">
-	  		<text class="log_start">{{log.startTimeShow}}</text>
-	  		<text class="log_action">\t \t{{log.action}} {{log.action=='开始'? '▷':'◉'}} </text>
-	  		<text class="{{log.name=='钓鱼'?'log_name_rest':'log_name_work'}}">{{log.name}}</text>
-	  	</view>
-	</scroll-view>
 
-	<view class="clear">
-		<!-- <button bindtap="switchModal" class="clear_btn" size="mini" >删 除</button> -->
-		<image class="deletelog"  bindtap="switchModal" src="../../image/delete.png"/>
-	</view>
+  <!-- 钓鱼记录 -->
+  <scroll-view class="itemcontainer" scroll-y="true">
+    <view class="log_item" wx:for="{{logs}}" wx:for-index="$index" wx:for-item="log">
+      <text class="log_start">{{log.startTimeShow}}</text>
+      <text class="log_action">\t \t{{log.action}} {{log.action=='开始'? '▷':'◉'}} </text>
+      <text class="{{log.name=='钓鱼'?'log_name_rest':'log_name_work'}}">{{log.name}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 清空钓鱼记录按钮，TODO 这个待讨论，提供清空功能是否合理？？？？ -->
+  <!-- <view class="clear">
+    <button bindtap="switchModal" class="clear_btn" size="mini" >删 除</button>
+    <image class="deletelog" bindtap="switchModal" src="../../image/delete.png" />
+  </view> -->
+
   <!-- <ad unit-id="adunit-45472909deac0995"></ad> -->
-	<modal 
-		title="清除所有钓鱼记录？" 
-		confirm-text="确定" 
-		cancel-text="取消" 
-		hidden="{{modalHidden}}" 
-		bindconfirm="clearLog" 
-		bindcancel="switchModal">
-	</modal>
+  <modal title="清除所有钓鱼记录？" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="clearLog" bindcancel="switchModal">
+  </modal>
 </block>
+
 <block wx:else>
-	<view class="nodata">
-		<image class="nodata_img" src="../../image/nodata.png"></image>
-		<text class="nodata_text">暂无钓鱼记录</text>
-	</view>
+  <view class="nodata">
+    <image class="nodata_img" src="../../image/nodata.png"></image>
+    <text class="nodata_text">暂无钓鱼记录</text>
+  </view>
 </block>
 <toast hidden="{{toastHidden}}" bindchange="hideToast">已清空</toast>
